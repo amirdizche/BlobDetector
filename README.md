@@ -39,7 +39,7 @@ Output:
 
 `blob_detector('solar.jpg', 2, 10, 0.01, 'DOG', 'buttefly blob')`
 
-<img src="Images/solar.jpg" alt="Waldp" style="zoom: 50%;" /> <img src="Images/solar_blob.png" alt="Waldp"  />
+<img src="Images/solar.jpg" alt="Waldp" style="zoom: 25%;" /> <img src="Images/solar_blob.png" alt="Waldp" style="zoom: 50%;" />
 
 
 
@@ -65,7 +65,7 @@ $$
 $$
 The LoG filter is implemented by the `LoG_filter(sigma)` function in the main code (`afallahblob.py`).  This code will return a LoG filter with proper dimensions scaled with σ2.  This method will generate a more accurate result bus has more computation complexity compared to the approximation that is described next.  The LoG filter is illustrated below.
 
-<img src="Images/Fig1.JPG" alt="Waldp" style="zoom:67%;" />
+<img src="Images/Fig1.JPG" alt="Waldp" style="zoom: 50%;" />
 
 
 
@@ -82,7 +82,7 @@ $$
 
 This filter is implemented via `Dog_filter(sigma)` function in the main code (`afallahblob.py`). Figure 2 indicates the approximation of LoG filter with DoG filter.
 
-<img src="Images/Fig2.JPG" alt="Waldp" style="zoom:67%;" />
+<img src="Images/Fig2.JPG" alt="Waldp" style="zoom: 33%;" />
 
 ## 2D Convolution
 
@@ -126,7 +126,7 @@ This function gets the result of previous function ( find scale) and the values 
 $$
 r = \sqrt2 \sigma
 $$
-<img src="Images/Fig3.JPG" alt="Waldp" style="zoom:67%;" />
+<img src="Images/Fig3.JPG" alt="Waldp" style="zoom: 33%;" />
 
 Finally, we need a function to depict the results and draw the circles of detected blobs with proper radius and center on the original input image. The `draw_circles` function is developed to handle this task.
 
@@ -156,7 +156,7 @@ Output:
 - An image with circles of blobs detected with proper scale drawn on it.
 - Here is a sample output for `σ=2, threshold=0.0, n=10, Filter= 'DoG'`
 
-<img src="Images/butterfly.jpg" alt="Waldp" style="zoom:67%;" /> <img src="Images/buttefly_blob.png" alt="Waldp"  />
+<img src="Images/butterfly.jpg" alt="Waldp" style="zoom: 33%;" /> <img src="Images/buttefly_blob.png" alt="Waldp" style="zoom:50%;" />
 
 
 
