@@ -60,9 +60,9 @@ Blob detector consists of several ports. In order to detect blobs, we need to ge
 ## Laplacian of Gaussian (LoG) filter
 
 The first method is to implement the LoG filter exactly based on the following equation.
-$$
-\mbox{LoG} = -\frac{1}{\pi \sigma^4}(1-\frac{x^2 + y^2}{2 \sigma^2})\exp(-\frac{x^2 + y^2}{2 \sigma^2})
-$$
+
+<img src="Images/LoGfilter.JPG" alt="Waldp" style="zoom: 50%;" />
+
 The LoG filter is implemented by the `LoG_filter(sigma)` function in the main code (`afallahblob.py`).  This code will return a LoG filter with proper dimensions scaled with σ2.  This method will generate a more accurate result bus has more computation complexity compared to the approximation that is described next.  The LoG filter is illustrated below.
 
 <img src="Images/Fig1.JPG" alt="Waldp" style="zoom: 50%;" />
@@ -72,13 +72,8 @@ The LoG filter is implemented by the `LoG_filter(sigma)` function in the main co
 ## Difference of Gaussian (DoG) filter
 
 This method will approximate the LoG filter with parameter σ with difference of two Gaussian functions with variances equal to 1.6σ and σ respectively. 
-$$
-     G_{\sigma} = \frac{1}{2 \pi \sigma^2}\exp{-\frac{x^2 + y^2}{2 \sigma^2}}
-$$
 
-$$
-    \mbox{LoG} \approx G_{1.6\sigma}-G_{\sigma}
-$$
+<img src="Images/DogFilter.JPG" alt="Waldp" style="zoom: 33%;" />
 
 This filter is implemented via `Dog_filter(sigma)` function in the main code (`afallahblob.py`). Figure 2 indicates the approximation of LoG filter with DoG filter.
 
@@ -122,10 +117,8 @@ Having these information, we can now start to find the circles. The `find_circl
 
 `find_circles(max scale, threshold, sigma)`
 
-This function gets the result of previous function ( find scale) and the values of threshold and σ as the input and returns the coordinates of the center of the circles. It also calculates the radius of each circle based on the values of scale and σ using the following formula:
-$$
-r = \sqrt2 \sigma
-$$
+This function gets the result of previous function ( find scale) and the values of threshold and σ as the input and returns the coordinates of the center of the circles.
+
 <img src="Images/Fig3.JPG" alt="Waldp" style="zoom: 33%;" />
 
 Finally, we need a function to depict the results and draw the circles of detected blobs with proper radius and center on the original input image. The `draw_circles` function is developed to handle this task.
